@@ -5,10 +5,10 @@ import { type LanguageCode } from '@/lib/constants'
 
 interface EmergencyAlertProps {
   onClose: () => void
-  language?: LanguageCode
+  _language?: LanguageCode
 }
 
-export default function EmergencyAlert({ onClose, language = 'en' }: EmergencyAlertProps) {
+export default function EmergencyAlert({ onClose, _language = 'en' }: EmergencyAlertProps) {
   void language
   return (
     <motion.div
