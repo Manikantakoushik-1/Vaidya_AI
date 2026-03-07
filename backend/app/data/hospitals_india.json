@@ -1,0 +1,252 @@
+[
+  {
+    "id": "ap_001", "name": "Government General Hospital Vijayawada", "type": "Government Hospital",
+    "address": "Siddhartha Nagar, Vijayawada", "district": "Krishna", "state": "Andhra Pradesh",
+    "lat": 16.5062, "lng": 80.6480, "phone": "0866-2575500", "beds": 1200
+  },
+  {
+    "id": "ap_002", "name": "KIMS Hospital Amalapuram", "type": "District Hospital",
+    "address": "Main Road, Amalapuram", "district": "East Godavari", "state": "Andhra Pradesh",
+    "lat": 16.5797, "lng": 82.0093, "phone": "08856-232300", "beds": 200
+  },
+  {
+    "id": "ap_003", "name": "PHC Nandigama", "type": "PHC",
+    "address": "Nandigama Town, Nandigama", "district": "Krishna", "state": "Andhra Pradesh",
+    "lat": 16.7770, "lng": 80.2887, "phone": "08677-252345", "beds": 30
+  },
+  {
+    "id": "ap_004", "name": "Government District Hospital Guntur", "type": "District Hospital",
+    "address": "Collectorate Road, Guntur", "district": "Guntur", "state": "Andhra Pradesh",
+    "lat": 16.3007, "lng": 80.4428, "phone": "0863-2224455", "beds": 600
+  },
+  {
+    "id": "ap_005", "name": "Government General Hospital Visakhapatnam", "type": "Government Hospital",
+    "address": "King George Hospital Road, Visakhapatnam", "district": "Visakhapatnam", "state": "Andhra Pradesh",
+    "lat": 17.7231, "lng": 83.3012, "phone": "0891-2566401", "beds": 1600
+  },
+  {
+    "id": "ap_006", "name": "CHC Bhimavaram", "type": "CHC",
+    "address": "Hospital Road, Bhimavaram", "district": "West Godavari", "state": "Andhra Pradesh",
+    "lat": 16.5448, "lng": 81.5216, "phone": "08816-224567", "beds": 100
+  },
+  {
+    "id": "ap_007", "name": "Government Hospital Nellore", "type": "Government Hospital",
+    "address": "Grand Trunk Road, Nellore", "district": "Nellore", "state": "Andhra Pradesh",
+    "lat": 14.4426, "lng": 79.9865, "phone": "0861-2325600", "beds": 500
+  },
+  {
+    "id": "ap_008", "name": "PHC Tenali", "type": "PHC",
+    "address": "RTC Road, Tenali", "district": "Guntur", "state": "Andhra Pradesh",
+    "lat": 16.2430, "lng": 80.6446, "phone": "08644-221234", "beds": 30
+  },
+  {
+    "id": "ap_009", "name": "Government Hospital Kurnool", "type": "Government Hospital",
+    "address": "Kurnool Road, Kurnool", "district": "Kurnool", "state": "Andhra Pradesh",
+    "lat": 15.8281, "lng": 78.0373, "phone": "08518-222300", "beds": 700
+  },
+  {
+    "id": "ap_010", "name": "CHC Tadepalligudem", "type": "CHC",
+    "address": "NH16, Tadepalligudem", "district": "West Godavari", "state": "Andhra Pradesh",
+    "lat": 16.8145, "lng": 81.5232, "phone": "08818-225678", "beds": 80
+  },
+  {
+    "id": "ap_011", "name": "PHC Eluru", "type": "PHC",
+    "address": "Municipal Road, Eluru", "district": "West Godavari", "state": "Andhra Pradesh",
+    "lat": 16.7107, "lng": 81.0952, "phone": "08812-226789", "beds": 30
+  },
+  {
+    "id": "ap_012", "name": "Government Hospital Tirupati", "type": "Government Hospital",
+    "address": "Tiruchanoor Road, Tirupati", "district": "Chittoor", "state": "Andhra Pradesh",
+    "lat": 13.6288, "lng": 79.4192, "phone": "0877-2263100", "beds": 800
+  },
+  {
+    "id": "ts_001", "name": "Gandhi Hospital Hyderabad", "type": "Government Hospital",
+    "address": "Musheerabad, Hyderabad", "district": "Hyderabad", "state": "Telangana",
+    "lat": 17.3963, "lng": 78.4798, "phone": "040-27505566", "beds": 1200
+  },
+  {
+    "id": "ts_002", "name": "Osmania General Hospital", "type": "Government Hospital",
+    "address": "Afzalgunj, Hyderabad", "district": "Hyderabad", "state": "Telangana",
+    "lat": 17.3728, "lng": 78.4742, "phone": "040-24600320", "beds": 1500
+  },
+  {
+    "id": "ts_003", "name": "District Hospital Warangal", "type": "District Hospital",
+    "address": "NH163, Warangal", "district": "Warangal", "state": "Telangana",
+    "lat": 17.9784, "lng": 79.5941, "phone": "0870-2578456", "beds": 400
+  },
+  {
+    "id": "ts_004", "name": "PHC Nizamabad Rural", "type": "PHC",
+    "address": "Bodhan Road, Nizamabad", "district": "Nizamabad", "state": "Telangana",
+    "lat": 18.6725, "lng": 78.0941, "phone": "08462-224567", "beds": 30
+  },
+  {
+    "id": "ts_005", "name": "Government Hospital Karimnagar", "type": "Government Hospital",
+    "address": "Collectorate Road, Karimnagar", "district": "Karimnagar", "state": "Telangana",
+    "lat": 18.4386, "lng": 79.1288, "phone": "0878-2241234", "beds": 300
+  },
+  {
+    "id": "ts_006", "name": "CHC Siddipet", "type": "CHC",
+    "address": "Gajwel Road, Siddipet", "district": "Siddipet", "state": "Telangana",
+    "lat": 18.1038, "lng": 78.8528, "phone": "08457-222345", "beds": 100
+  },
+  {
+    "id": "ts_007", "name": "Government Hospital Khammam", "type": "Government Hospital",
+    "address": "Wyra Road, Khammam", "district": "Khammam", "state": "Telangana",
+    "lat": 17.2473, "lng": 80.1514, "phone": "08742-222456", "beds": 350
+  },
+  {
+    "id": "ts_008", "name": "PHC Mahbubnagar", "type": "PHC",
+    "address": "Jadcherla Road, Mahbubnagar", "district": "Mahbubnagar", "state": "Telangana",
+    "lat": 16.7488, "lng": 77.9846, "phone": "08542-222567", "beds": 30
+  },
+  {
+    "id": "ts_009", "name": "CHC Nalgonda", "type": "CHC",
+    "address": "Miryalguda Road, Nalgonda", "district": "Nalgonda", "state": "Telangana",
+    "lat": 17.0575, "lng": 79.2680, "phone": "08682-222678", "beds": 80
+  },
+  {
+    "id": "ts_010", "name": "Area Hospital Adilabad", "type": "District Hospital",
+    "address": "Nirmal Road, Adilabad", "district": "Adilabad", "state": "Telangana",
+    "lat": 19.6641, "lng": 78.5320, "phone": "08732-222789", "beds": 200
+  },
+  {
+    "id": "ts_011", "name": "PHC Sangareddy", "type": "PHC",
+    "address": "Patancheru Road, Sangareddy", "district": "Sangareddy", "state": "Telangana",
+    "lat": 17.6232, "lng": 78.0866, "phone": "08455-222890", "beds": 30
+  },
+  {
+    "id": "ka_001", "name": "Victoria Hospital Bangalore", "type": "Government Hospital",
+    "address": "Kalasipalyam, Bengaluru", "district": "Bengaluru Urban", "state": "Karnataka",
+    "lat": 12.9629, "lng": 77.5769, "phone": "080-22862000", "beds": 1400
+  },
+  {
+    "id": "ka_002", "name": "District Hospital Mysuru", "type": "District Hospital",
+    "address": "Irwin Road, Mysuru", "district": "Mysuru", "state": "Karnataka",
+    "lat": 12.3052, "lng": 76.6556, "phone": "0821-2423200", "beds": 450
+  },
+  {
+    "id": "ka_003", "name": "PHC Tumkur Rural", "type": "PHC",
+    "address": "NH48, Tumkur", "district": "Tumkur", "state": "Karnataka",
+    "lat": 13.3414, "lng": 77.1010, "phone": "0816-2271234", "beds": 30
+  },
+  {
+    "id": "ka_004", "name": "Government Hospital Hubli", "type": "Government Hospital",
+    "address": "Navanagar, Hubli", "district": "Dharwad", "state": "Karnataka",
+    "lat": 15.3647, "lng": 75.1240, "phone": "0836-2362200", "beds": 600
+  },
+  {
+    "id": "ka_005", "name": "CHC Mandya", "type": "CHC",
+    "address": "Mysore Road, Mandya", "district": "Mandya", "state": "Karnataka",
+    "lat": 12.5218, "lng": 76.8952, "phone": "08232-222345", "beds": 100
+  },
+  {
+    "id": "ka_006", "name": "District Hospital Bellary", "type": "District Hospital",
+    "address": "Cantonment Road, Ballari", "district": "Ballari", "state": "Karnataka",
+    "lat": 15.1394, "lng": 76.9214, "phone": "08392-222456", "beds": 300
+  },
+  {
+    "id": "tn_001", "name": "Rajiv Gandhi Government General Hospital Chennai", "type": "Government Hospital",
+    "address": "Park Town, Chennai", "district": "Chennai", "state": "Tamil Nadu",
+    "lat": 13.0827, "lng": 80.2707, "phone": "044-25305000", "beds": 2600
+  },
+  {
+    "id": "tn_002", "name": "Government Hospital Coimbatore", "type": "Government Hospital",
+    "address": "Trichy Road, Coimbatore", "district": "Coimbatore", "state": "Tamil Nadu",
+    "lat": 10.9981, "lng": 76.9856, "phone": "0422-2301200", "beds": 900
+  },
+  {
+    "id": "tn_003", "name": "PHC Vellore Rural", "type": "PHC",
+    "address": "Arcot Road, Vellore", "district": "Vellore", "state": "Tamil Nadu",
+    "lat": 12.9165, "lng": 79.1325, "phone": "0416-2221234", "beds": 30
+  },
+  {
+    "id": "tn_004", "name": "Government Hospital Madurai", "type": "Government Hospital",
+    "address": "Panagal Road, Madurai", "district": "Madurai", "state": "Tamil Nadu",
+    "lat": 9.9252, "lng": 78.1198, "phone": "0452-2532500", "beds": 1200
+  },
+  {
+    "id": "tn_005", "name": "CHC Salem", "type": "CHC",
+    "address": "Omalur Road, Salem", "district": "Salem", "state": "Tamil Nadu",
+    "lat": 11.6643, "lng": 78.1460, "phone": "0427-2222345", "beds": 100
+  },
+  {
+    "id": "mh_001", "name": "JJ Hospital Mumbai", "type": "Government Hospital",
+    "address": "Byculla, Mumbai", "district": "Mumbai City", "state": "Maharashtra",
+    "lat": 18.9667, "lng": 72.8344, "phone": "022-23735555", "beds": 1800
+  },
+  {
+    "id": "mh_002", "name": "Sassoon General Hospital Pune", "type": "Government Hospital",
+    "address": "Pune Station Road, Pune", "district": "Pune", "state": "Maharashtra",
+    "lat": 18.5204, "lng": 73.8567, "phone": "020-26128000", "beds": 1200
+  },
+  {
+    "id": "mh_003", "name": "PHC Nashik Rural", "type": "PHC",
+    "address": "Trimbak Road, Nashik", "district": "Nashik", "state": "Maharashtra",
+    "lat": 19.9975, "lng": 73.7898, "phone": "0253-2221234", "beds": 30
+  },
+  {
+    "id": "mh_004", "name": "Government Hospital Aurangabad", "type": "Government Hospital",
+    "address": "Jalna Road, Aurangabad", "district": "Aurangabad", "state": "Maharashtra",
+    "lat": 19.8762, "lng": 75.3433, "phone": "0240-2333200", "beds": 700
+  },
+  {
+    "id": "mh_005", "name": "District Hospital Kolhapur", "type": "District Hospital",
+    "address": "CPR Road, Kolhapur", "district": "Kolhapur", "state": "Maharashtra",
+    "lat": 16.7050, "lng": 74.2433, "phone": "0231-2622300", "beds": 400
+  },
+  {
+    "id": "mh_006", "name": "CHC Solapur", "type": "CHC",
+    "address": "Hotgi Road, Solapur", "district": "Solapur", "state": "Maharashtra",
+    "lat": 17.6805, "lng": 75.9064, "phone": "0217-2722345", "beds": 100
+  },
+  {
+    "id": "ap_013", "name": "PHC Gudivada", "type": "PHC",
+    "address": "Machilipatnam Road, Gudivada", "district": "Krishna", "state": "Andhra Pradesh",
+    "lat": 16.4337, "lng": 80.9905, "phone": "08674-221234", "beds": 30
+  },
+  {
+    "id": "ap_014", "name": "Government Hospital Rajahmundry", "type": "Government Hospital",
+    "address": "Main Road, Rajahmundry", "district": "East Godavari", "state": "Andhra Pradesh",
+    "lat": 17.0005, "lng": 81.8040, "phone": "0883-2474500", "beds": 500
+  },
+  {
+    "id": "ts_012", "name": "CHC Medak", "type": "CHC",
+    "address": "Hyderabad Road, Medak", "district": "Medak", "state": "Telangana",
+    "lat": 18.0469, "lng": 78.2614, "phone": "08452-222901", "beds": 80
+  },
+  {
+    "id": "ts_013", "name": "PHC Suryapet", "type": "PHC",
+    "address": "Nalgonda Road, Suryapet", "district": "Suryapet", "state": "Telangana",
+    "lat": 17.1430, "lng": 79.6209, "phone": "08685-222012", "beds": 30
+  },
+  {
+    "id": "ap_015", "name": "PHC Narasaraopet", "type": "PHC",
+    "address": "Guntur Road, Narasaraopet", "district": "Guntur", "state": "Andhra Pradesh",
+    "lat": 16.2345, "lng": 80.0496, "phone": "08647-221345", "beds": 30
+  },
+  {
+    "id": "ka_007", "name": "PHC Kolar", "type": "PHC",
+    "address": "Bangarpet Road, Kolar", "district": "Kolar", "state": "Karnataka",
+    "lat": 13.1362, "lng": 78.1338, "phone": "08152-222123", "beds": 30
+  },
+  {
+    "id": "tn_006", "name": "PHC Tiruchirappalli Rural", "type": "PHC",
+    "address": "Srirangam Road, Tiruchirappalli", "district": "Tiruchirappalli", "state": "Tamil Nadu",
+    "lat": 10.7905, "lng": 78.7047, "phone": "0431-2221234", "beds": 30
+  },
+  {
+    "id": "mh_007", "name": "PHC Nagpur Rural", "type": "PHC",
+    "address": "Wardha Road, Nagpur", "district": "Nagpur", "state": "Maharashtra",
+    "lat": 21.1458, "lng": 79.0882, "phone": "0712-2221234", "beds": 30
+  },
+  {
+    "id": "ap_016", "name": "CHC Ongole", "type": "CHC",
+    "address": "Kurnool Road, Ongole", "district": "Prakasam", "state": "Andhra Pradesh",
+    "lat": 15.5057, "lng": 80.0499, "phone": "08592-221456", "beds": 80
+  },
+  {
+    "id": "ts_014", "name": "Area Hospital Mancherial", "type": "District Hospital",
+    "address": "Bellampalli Road, Mancherial", "district": "Mancherial", "state": "Telangana",
+    "lat": 18.8712, "lng": 79.4543, "phone": "08737-222123", "beds": 150
+  }
+]
