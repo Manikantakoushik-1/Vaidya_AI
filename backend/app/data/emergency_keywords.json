@@ -1,0 +1,79 @@
+{
+  "en": {
+    "cardiac": [
+      "chest pain", "heart attack", "heart pain", "chest tightness", "chest pressure",
+      "cardiac arrest", "angina", "palpitations", "irregular heartbeat"
+    ],
+    "respiratory": [
+      "can't breathe", "difficulty breathing", "shortness of breath", "not breathing",
+      "choking", "suffocating", "breathlessness", "respiratory distress", "gasping"
+    ],
+    "neurological": [
+      "unconscious", "unconsciousness", "fainted", "passed out", "seizure", "convulsion",
+      "fits", "stroke", "paralysis", "facial droop", "slurred speech", "sudden confusion",
+      "loss of consciousness"
+    ],
+    "trauma": [
+      "heavy bleeding", "severe accident", "road accident", "major injury",
+      "deep wound", "head injury", "spinal injury", "internal bleeding"
+    ],
+    "poisoning": [
+      "poisoning", "snake bite", "snakebite", "dog bite", "scorpion sting",
+      "rat poison", "pesticide", "chemical burn", "accidental ingestion"
+    ],
+    "obstetric": [
+      "labour pain", "labor pain", "water broke", "heavy vaginal bleeding",
+      "pregnancy emergency", "eclampsia", "fits in pregnancy"
+    ]
+  },
+  "hi": {
+    "cardiac": [
+      "सीने में दर्द", "दिल का दौरा", "हार्ट अटैक", "सीने में जकड़न", "दिल में दर्द",
+      "हृदय रोग", "एनजाइना", "धड़कन तेज", "अनियमित धड़कन"
+    ],
+    "respiratory": [
+      "सांस नहीं आ रही", "सांस लेने में तकलीफ", "दम घुटना", "सांस फूलना",
+      "श्वास रुकना", "दम घुटने लगा", "सांस नहीं ले पा रहा"
+    ],
+    "neurological": [
+      "बेहोश", "बेहोशी", "होश नहीं", "दौरा", "मिर्गी", "लकवा", "पक्षाघात",
+      "बोल नहीं पा रहा", "अचानक गिर गया", "चेतना खो बैठा"
+    ],
+    "trauma": [
+      "भारी रक्तस्राव", "खून बह रहा है", "गंभीर दुर्घटना", "सड़क दुर्घटना",
+      "गहरा घाव", "सिर में चोट", "अंदरूनी रक्तस्राव"
+    ],
+    "poisoning": [
+      "जहर", "विषाक्तता", "सांप का काटना", "कुत्ते का काटना", "बिच्छू का डंक",
+      "कीटनाशक", "रसायन पी लिया", "गलती से जहर"
+    ],
+    "obstetric": [
+      "प्रसव पीड़ा", "पानी आ गया", "योनि से भारी रक्तस्राव", "गर्भावस्था में दौरे"
+    ]
+  },
+  "te": {
+    "cardiac": [
+      "గుండె నొప్పి", "హార్ట్ అటాక్", "గుండెపోటు", "ఛాతీలో నొప్పి", "ఛాతీ బిగుతు",
+      "గుండె జబ్బు", "అనియమిత గుండె చప్పుడు"
+    ],
+    "respiratory": [
+      "శ్వాస తీసుకోలేకపోతున్నాను", "శ్వాస ఇబ్బంది", "గాలి అందడం లేదు",
+      "ఊపిరి ఆడటం లేదు", "గొంతు నిండిపోయింది", "ఊపిరి తక్కువగా ఉంది"
+    ],
+    "neurological": [
+      "అపస్మారం", "మూర్ఛ", "స్పృహ కోల్పోయారు", "పక్షవాతం", "స్ట్రోక్",
+      "మాట్లాడలేకపోతున్నారు", "హఠాత్తుగా పడిపోయారు", "ఫిట్స్"
+    ],
+    "trauma": [
+      "తీవ్రమైన రక్తస్రావం", "ప్రమాదం", "రోడ్డు ప్రమాదం", "తీవ్రమైన గాయం",
+      "తల గాయం", "అంతర్గత రక్తస్రావం"
+    ],
+    "poisoning": [
+      "పాము కాటు", "కుక్క కాటు", "తేలు కుట్ట", "విషం", "పురుగుమందు",
+      "రసాయన కాలిన గాయాలు", "పొరపాటున విషం తాగారు"
+    ],
+    "obstetric": [
+      "ప్రసవ నొప్పి", "నీళ్ళు పోయాయి", "అధిక రక్తస్రావం", "గర్భంలో మూర్ఛ"
+    ]
+  }
+}

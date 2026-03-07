@@ -1,0 +1,314 @@
+{
+  "fever": {
+    "severity": "moderate",
+    "conditions": ["fever", "common_cold", "malaria", "typhoid", "dengue"],
+    "aliases": ["high temperature", "pyrexia", "बुखार", "జ్వరం"],
+    "emergency_if": "above 104F, or with stiff neck, or with seizure"
+  },
+  "chest_pain": {
+    "severity": "emergency",
+    "conditions": ["chest_pain", "heart_attack"],
+    "aliases": ["chest tightness", "chest pressure", "सीने में दर्द", "గుండె నొప్పి", "ఛాతీ నొప్పి"],
+    "emergency_if": "always"
+  },
+  "headache": {
+    "severity": "mild",
+    "conditions": ["headache"],
+    "aliases": ["head ache", "head pain", "सिरदर्द", "తలనొప్పి"],
+    "emergency_if": "sudden severe headache, headache after head injury, with stiff neck"
+  },
+  "cough": {
+    "severity": "mild",
+    "conditions": ["cough", "common_cold", "asthma"],
+    "aliases": ["coughing", "persistent cough", "dry cough", "wet cough", "खांसी", "దగ్గు"],
+    "emergency_if": "coughing blood, severe breathlessness with cough"
+  },
+  "difficulty_breathing": {
+    "severity": "emergency",
+    "conditions": ["asthma"],
+    "aliases": ["shortness of breath", "breathlessness", "can't breathe", "sांस नहीं", "శ్వాస ఇబ్బంది"],
+    "emergency_if": "always"
+  },
+  "runny_nose": {
+    "severity": "mild",
+    "conditions": ["common_cold"],
+    "aliases": ["nasal discharge", "blocked nose", "stuffy nose", "बंद नाक", "ముక్కు స్రావం"],
+    "emergency_if": "never"
+  },
+  "sore_throat": {
+    "severity": "mild",
+    "conditions": ["common_cold"],
+    "aliases": ["throat pain", "throat ache", "गले में दर्द", "గొంతు నొప్పి"],
+    "emergency_if": "difficulty swallowing, severe throat swelling"
+  },
+  "body_pain": {
+    "severity": "mild",
+    "conditions": ["body_pain", "fever", "dengue"],
+    "aliases": ["muscle pain", "body ache", "muscle ache", "शरीर में दर्द", "శరీర నొప్పి"],
+    "emergency_if": "severe body pain with high fever and rash"
+  },
+  "diarrhea": {
+    "severity": "moderate",
+    "conditions": ["diarrhea"],
+    "aliases": ["loose motions", "loose stool", "watery stool", "दस्त", "విరేచనాలు"],
+    "emergency_if": "blood in stool, signs of severe dehydration, in child under 2"
+  },
+  "vomiting": {
+    "severity": "moderate",
+    "conditions": ["vomiting"],
+    "aliases": ["nausea", "feeling sick", "उल्टी", "వాంతి"],
+    "emergency_if": "vomiting blood, vomiting after head injury, cannot keep fluids down"
+  },
+  "stomach_pain": {
+    "severity": "moderate",
+    "conditions": ["acidity", "diarrhea"],
+    "aliases": ["abdominal pain", "stomach ache", "belly pain", "पेट दर्द", "కడుపు నొప్పి"],
+    "emergency_if": "sudden severe stomach pain, rigid abdomen"
+  },
+  "acidity": {
+    "severity": "mild",
+    "conditions": ["acidity"],
+    "aliases": ["heartburn", "acid reflux", "burning sensation after food", "एसिडिटी", "ఆమ్లత"],
+    "emergency_if": "chest pain that could be cardiac"
+  },
+  "rash": {
+    "severity": "mild",
+    "conditions": ["skin_rash", "dengue"],
+    "aliases": ["skin rash", "hives", "urticaria", "red spots", "दाने", "దద్దుర్లు"],
+    "emergency_if": "rash with difficulty breathing, rash with stiff neck and fever"
+  },
+  "itching": {
+    "severity": "mild",
+    "conditions": ["skin_rash", "insect_bite"],
+    "aliases": ["itchy skin", "pruritus", "खुजली", "దురద"],
+    "emergency_if": "generalized severe itching with swelling"
+  },
+  "joint_pain": {
+    "severity": "moderate",
+    "conditions": ["body_pain", "dengue"],
+    "aliases": ["arthralgia", "joint ache", "जोड़ों में दर्द", "కీళ్ళ నొప్పి"],
+    "emergency_if": "severe joint pain with swelling and fever"
+  },
+  "back_pain": {
+    "severity": "moderate",
+    "conditions": ["body_pain"],
+    "aliases": ["backache", "lower back pain", "spinal pain", "पीठ दर्द", "వెన్నునొప్పి"],
+    "emergency_if": "back pain after injury, with urinary symptoms in pregnancy"
+  },
+  "dizziness": {
+    "severity": "moderate",
+    "conditions": ["dehydration", "hypertension"],
+    "aliases": ["vertigo", "giddiness", "lightheadedness", "चक्कर", "తలతిరగడం"],
+    "emergency_if": "dizziness with loss of consciousness, dizziness with chest pain"
+  },
+  "fatigue": {
+    "severity": "mild",
+    "conditions": ["fever", "diabetes_symptoms", "dehydration"],
+    "aliases": ["weakness", "tiredness", "exhaustion", "कमजोरी", "బలహీనత"],
+    "emergency_if": "sudden severe weakness on one side of body"
+  },
+  "sweating": {
+    "severity": "mild",
+    "conditions": ["fever", "heart_attack"],
+    "aliases": ["excessive sweating", "night sweats", "cold sweat", "पसीना", "చెమట"],
+    "emergency_if": "cold sweat with chest pain"
+  },
+  "palpitations": {
+    "severity": "moderate",
+    "conditions": ["hypertension", "anxiety"],
+    "aliases": ["racing heart", "irregular heartbeat", "heart fluttering", "धड़कन", "గుండె వేగంగా కొట్టుకోవడం"],
+    "emergency_if": "palpitations with chest pain or loss of consciousness"
+  },
+  "numbness": {
+    "severity": "severe",
+    "conditions": ["stroke"],
+    "aliases": ["tingling", "pins and needles", "loss of sensation", "सुन्नपन", "తిమ్మిరి"],
+    "emergency_if": "sudden numbness on one side of body, facial numbness"
+  },
+  "vision_problems": {
+    "severity": "severe",
+    "conditions": ["stroke", "hypertension"],
+    "aliases": ["blurred vision", "double vision", "loss of vision", "आंखों में धुंधलापन", "చూపు మందగించడం"],
+    "emergency_if": "sudden vision loss, loss of vision in one eye"
+  },
+  "unconsciousness": {
+    "severity": "emergency",
+    "conditions": ["stroke", "heart_attack", "seizure"],
+    "aliases": ["fainted", "passed out", "unresponsive", "बेहोश", "అపస్మారం"],
+    "emergency_if": "always"
+  },
+  "seizure": {
+    "severity": "emergency",
+    "conditions": ["epilepsy"],
+    "aliases": ["fits", "convulsions", "epileptic episode", "दौरा", "మూర్ఛ"],
+    "emergency_if": "always"
+  },
+  "wound": {
+    "severity": "moderate",
+    "conditions": ["wound"],
+    "aliases": ["cut", "laceration", "abrasion", "injury", "घाव", "గాయం"],
+    "emergency_if": "deep wound not stopping bleeding, animal bite"
+  },
+  "burns": {
+    "severity": "severe",
+    "conditions": ["burns"],
+    "aliases": ["burn injury", "scald", "fire burn", "chemical burn", "जलना", "కాలిన గాయాలు"],
+    "emergency_if": "large area burns, burns to face/airway, chemical burns"
+  },
+  "fracture": {
+    "severity": "severe",
+    "conditions": ["fracture"],
+    "aliases": ["broken bone", "bone fracture", "cannot move limb", "हड्डी टूटना", "ఎముక విరిగింది"],
+    "emergency_if": "open fracture, suspected spinal fracture"
+  },
+  "snake_bite": {
+    "severity": "emergency",
+    "conditions": ["snake_bite"],
+    "aliases": ["snakebite", "bitten by snake", "सांप का काटना", "పాము కాటు"],
+    "emergency_if": "always"
+  },
+  "dog_bite": {
+    "severity": "severe",
+    "conditions": ["dog_bite"],
+    "aliases": ["animal bite", "cat bite", "monkey bite", "कुत्ते का काटना", "కుక్క కాటు"],
+    "emergency_if": "deep bite, bite on face/neck"
+  },
+  "insect_bite": {
+    "severity": "mild",
+    "conditions": ["insect_bite"],
+    "aliases": ["bee sting", "mosquito bite", "wasp sting", "कीड़े का काटना", "కీటక కాటు"],
+    "emergency_if": "difficulty breathing after sting, swelling of face/throat"
+  },
+  "dehydration": {
+    "severity": "moderate",
+    "conditions": ["dehydration"],
+    "aliases": ["very thirsty", "dry mouth", "not urinating", "निर्जलीकरण", "నిర్జలీకరణం"],
+    "emergency_if": "severe dehydration with confusion or in child"
+  },
+  "excessive_thirst": {
+    "severity": "moderate",
+    "conditions": ["diabetes_symptoms", "dehydration"],
+    "aliases": ["polydipsia", "drinking too much water", "अत्यधिक प्यास", "అధిక దాహం"],
+    "emergency_if": "with confusion or unconsciousness"
+  },
+  "frequent_urination": {
+    "severity": "mild",
+    "conditions": ["diabetes_symptoms", "urinary_infection"],
+    "aliases": ["urinating often", "बार-बार पेशाब", "తరచుగా మూత్రవిసర్జన"],
+    "emergency_if": "with high fever"
+  },
+  "burning_urination": {
+    "severity": "moderate",
+    "conditions": ["urinary_infection"],
+    "aliases": ["painful urination", "dysuria", "पेशाब में जलन", "మూత్ర విసర్జనలో మంట"],
+    "emergency_if": "with high fever and back pain"
+  },
+  "chills": {
+    "severity": "moderate",
+    "conditions": ["fever", "malaria"],
+    "aliases": ["shivering", "rigor", "कंपकंपी", "వణుకు"],
+    "emergency_if": "severe chills with very high fever"
+  },
+  "high_temperature": {
+    "severity": "moderate",
+    "conditions": ["fever"],
+    "aliases": ["very high fever", "104F", "105F", "तेज बुखार", "అధిక జ్వరం"],
+    "emergency_if": "above 104F in adults, any high fever in infants"
+  },
+  "anxiety": {
+    "severity": "mild",
+    "conditions": ["anxiety"],
+    "aliases": ["stress", "panic", "nervousness", "tension", "चिंता", "ఆందోళన"],
+    "emergency_if": "with chest pain, suicidal thoughts"
+  },
+  "insomnia": {
+    "severity": "mild",
+    "conditions": ["sleep_issues", "anxiety"],
+    "aliases": ["sleeplessness", "cannot sleep", "नींद नहीं", "నిద్ర రాదు"],
+    "emergency_if": "never"
+  },
+  "ear_pain": {
+    "severity": "moderate",
+    "conditions": ["ear_pain"],
+    "aliases": ["earache", "ear ache", "कान दर्द", "చెవి నొప్పి"],
+    "emergency_if": "with high fever, with discharge"
+  },
+  "eye_pain": {
+    "severity": "moderate",
+    "conditions": ["eye_infection"],
+    "aliases": ["eye ache", "red eye", "आंख में दर्द", "కంటి నొప్పి"],
+    "emergency_if": "sudden vision loss, chemical in eye"
+  },
+  "morning_sickness": {
+    "severity": "mild",
+    "conditions": ["pregnancy_symptoms"],
+    "aliases": ["nausea in pregnancy", "vomiting in pregnancy", "गर्भावस्था में उल्टी", "గర్భంలో వాకిలి"],
+    "emergency_if": "cannot keep any food/fluids down for 24 hours"
+  },
+  "period_pain": {
+    "severity": "moderate",
+    "conditions": ["menstrual_issues"],
+    "aliases": ["menstrual cramps", "dysmenorrhea", "मासिक दर्द", "రజస్వల నొప్పి"],
+    "emergency_if": "very heavy bleeding, fever with period pain"
+  },
+  "wheezing": {
+    "severity": "severe",
+    "conditions": ["asthma"],
+    "aliases": ["noisy breathing", "chest wheeze", "घरघराहट", "శ్వాస శబ్దం"],
+    "emergency_if": "severe wheeze, unable to speak in sentences"
+  },
+  "nosebleed": {
+    "severity": "moderate",
+    "conditions": ["hypertension"],
+    "aliases": ["epistaxis", "bleeding from nose", "नाक से खून", "ముక్కు రక్తస్రావం"],
+    "emergency_if": "uncontrolled heavy nosebleed"
+  },
+  "swelling": {
+    "severity": "moderate",
+    "conditions": ["fracture", "insect_bite"],
+    "aliases": ["edema", "oedema", "swollen", "सूजन", "వాపు"],
+    "emergency_if": "sudden swelling of face/throat after allergy, swelling after snake bite"
+  },
+  "blood_in_stool": {
+    "severity": "severe",
+    "conditions": ["diarrhea"],
+    "aliases": ["bloody stool", "rectal bleeding", "मल में खून", "మలంలో రక్తం"],
+    "emergency_if": "always seek urgent medical attention"
+  },
+  "blood_in_urine": {
+    "severity": "severe",
+    "conditions": ["urinary_infection"],
+    "aliases": ["hematuria", "pink urine", "red urine", "मूत्र में खून", "మూత్రంలో రక్తం"],
+    "emergency_if": "always"
+  },
+  "blurred_vision": {
+    "severity": "severe",
+    "conditions": ["hypertension", "diabetes_symptoms"],
+    "aliases": ["vision problems", "cannot see clearly", "आंखें धुंधली", "చూపు మసకబారడం"],
+    "emergency_if": "sudden vision loss"
+  },
+  "confusion": {
+    "severity": "severe",
+    "conditions": ["stroke", "high_fever", "dehydration"],
+    "aliases": ["disorientation", "not making sense", "भ्रम", "గందరగోళం"],
+    "emergency_if": "always"
+  },
+  "weight_loss": {
+    "severity": "moderate",
+    "conditions": ["diabetes_symptoms"],
+    "aliases": ["losing weight unintentionally", "sudden weight loss", "वजन कम होना", "బరువు తగ్గడం"],
+    "emergency_if": "rapid unexplained weight loss"
+  },
+  "pale_skin": {
+    "severity": "moderate",
+    "conditions": ["anemia"],
+    "aliases": ["pallor", "anaemia symptoms", "pale complexion", "पीलापन", "పాలిపోయిన చర్మం"],
+    "emergency_if": "with severe weakness and breathlessness"
+  },
+  "jaundice": {
+    "severity": "severe",
+    "conditions": ["hepatitis"],
+    "aliases": ["yellow skin", "yellow eyes", "पीलिया", "కామెర్లు"],
+    "emergency_if": "jaundice with severe abdominal pain or confusion"
+  }
+}
