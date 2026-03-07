@@ -45,6 +45,9 @@ class MedicalRAG:
     def _build_index(self) -> dict[str, list[dict]]:
         index: dict[str, list[dict]] = {}
         for entry in self._knowledge:
+            # Use .get() with fallback so missing 'id' doesn't raise KeyError
+            if not entry.get("id"):
+                entry.setdefault("id", entry.get("name_en", "unknown"))
             for symptom in entry.get("symptoms", []):
                 key = symptom.lower().strip()
                 index.setdefault(key, []).append(entry)

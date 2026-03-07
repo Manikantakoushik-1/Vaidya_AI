@@ -106,7 +106,10 @@ class SymptomExtractor:
                     break
 
         if not found:
-            # Fallback: treat entire input as a single unnamed symptom
+            # Fallback when no known symptom keyword matched.
+            # Default to "moderate" so the safety layer still recommends a doctor visit
+            # while avoiding unnecessary emergency escalation for unrecognised input.
+            logger.debug("No known symptoms matched in text — using 'unspecified symptom' fallback.")
             found.append(SymptomInfo(name="unspecified symptom", severity="moderate"))
 
         return found

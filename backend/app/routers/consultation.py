@@ -87,8 +87,9 @@ async def consult(request: ConsultationRequest) -> ConsultationResponse:
             language=lang,
         )
 
-        # Build home remedies and when-to-seek-help from RAG data (mild cases only)
-        home_remedies = rag_context.get("home_remedies") if severity == "mild" else None
+        # Build home remedies and when-to-seek-help from RAG data.
+        # Provide home remedies for mild and moderate conditions — not for severe/emergency.
+        home_remedies = rag_context.get("home_remedies") if severity in ("mild", "moderate") else None
         when_to_seek_help = rag_context.get("when_to_see_doctor")
 
         disclaimer = _DISCLAIMERS.get(lang, _DISCLAIMERS["en"])

@@ -79,8 +79,10 @@ class SafetyLayer:
     def _append_closing_reminder(self, text: str, language: str) -> str:
         """Always close with a reminder to visit a doctor (unless already present)."""
         reminder = _CLOSING_REMINDER.get(language, _CLOSING_REMINDER["en"])
-        keywords = {"PHC", "doctor", "डॉक्टर", "వైద్యుడు", "अस्पताल", "ఆసుపత్రి"}
-        already_present = any(kw in text for kw in keywords)
+        # Check case-insensitively so we don't duplicate when LLM uses 'Doctor', 'PHC', etc.
+        text_lower = text.lower()
+        keywords = {"phc", "doctor", "डॉक्टर", "వైద్యుడు", "अस्पताल", "ఆసుపత్రి"}
+        already_present = any(kw in text_lower for kw in keywords)
         if not already_present:
             text = text.rstrip() + reminder
         return text

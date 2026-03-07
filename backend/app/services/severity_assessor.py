@@ -61,6 +61,11 @@ class SeverityAssessor:
 
     def __init__(self) -> None:
         self._emergency_keywords = self._load_emergency_keywords()
+        # Pre-lowercase all emergency-type keywords to avoid repeated str ops at runtime
+        self._emergency_types_lower: dict[str, list[str]] = {
+            etype: [kw.lower() for kw in kws]
+            for etype, kws in self._EMERGENCY_TYPES.items()
+        }
 
     def _load_emergency_keywords(self) -> dict[str, list[str]]:
         """Load keywords from emergency_keywords.json, falling back to inline defaults."""
@@ -116,9 +121,9 @@ class SeverityAssessor:
         return "mild", None
 
     def _detect_emergency_type(self, lower_text: str) -> str:
-        """Return the most likely emergency category."""
-        for etype, keywords in self._EMERGENCY_TYPES.items():
+        """Return the most likely emergency category using pre-lowercased keyword lists."""
+        for etype, keywords in self._emergency_types_lower.items():
             for kw in keywords:
-                if kw.lower() in lower_text:
+                if kw in lower_text:
                     return etype
         return "general"
