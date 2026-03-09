@@ -1,14 +1,17 @@
 'use client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Moon, Sun } from 'lucide-react'
+import { Moon, Sun, BarChart3 } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/consultation', label: 'Consult' },
+  { href: '/chat', label: 'Chat' },
   { href: '/hospitals', label: 'Hospitals' },
   { href: '/history', label: 'History' },
+  { href: '/reminders', label: 'Reminders' },
+  { href: '/analytics', label: 'Analytics' },
   { href: '/about', label: 'About' },
 ]
 

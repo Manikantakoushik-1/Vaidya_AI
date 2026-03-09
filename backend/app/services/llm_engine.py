@@ -1,8 +1,8 @@
 """
 VaidyaAI – LLM Engine Service.
-Integrates with Google Gemini 2.5 Flash to generate empathetic, safe, multilingual
-medical guidance.  Implements exponential back-off for rate limiting and a
-rule-based fallback when the API is unavailable.
+Integrates with Groq API (Llama 3.3 70B) for fast, high-quality
+multilingual medical guidance generation.
+Falls back to a rule-based response when the API is unavailable.
 """
 
 import asyncio
@@ -27,7 +27,7 @@ CRITICAL RULES:
 10. If unsure about severity, err on the side of caution and recommend doctor visit.
 """
 
-# Fallback messages when Gemini is unavailable
+# Fallback messages when Groq is unavailable
 _FALLBACK: dict[str, str] = {
     "en": (
         "I understand you're not feeling well. Based on what you've described, "
@@ -52,38 +52,35 @@ _FALLBACK: dict[str, str] = {
 
 
 class LLMEngine:
-    """Async wrapper around the Gemini generative model."""
+    """Async wrapper around the Groq API using Llama 3.3 70B."""
 
     _MAX_RETRIES = 3
     _BASE_DELAY = 1.0  # seconds
+    _MODEL = "llama-3.3-70b-versatile"  # Fast, multilingual, high-quality
 
     def __init__(self) -> None:
-        self._model: Any = None
+        self._client: Any = None
         self._initialized = False
-        self._init_gemini()
+        self._init_groq()
 
-    def _init_gemini(self) -> None:
-        """Lazily initialise the Gemini client.  Logs a warning if the key is absent."""
+    def _init_groq(self) -> None:
+        """Initialise the Groq client. Logs a warning if the key is absent."""
         try:
             from app.config import get_settings
-            import google.generativeai as genai
-
             settings = get_settings()
-            if not settings.gemini_configured:
-                logger.warning("GEMINI_API_KEY not set — using fallback responses.")
+
+            if not settings.groq_configured:
+                logger.warning("GROQ_API_KEY not set — using fallback responses.")
                 return
 
-            genai.configure(api_key=settings.GEMINI_API_KEY)
-            self._model = genai.GenerativeModel(
-                model_name="gemini-2.5-flash",
-                system_instruction=SYSTEM_PROMPT,
-            )
+            from groq import Groq
+            self._client = Groq(api_key=settings.GROQ_API_KEY)
             self._initialized = True
-            logger.info("Gemini model initialised successfully.")
+            logger.info("Groq client initialised successfully (model: %s).", self._MODEL)
         except ImportError:
-            logger.warning("google-generativeai package not installed — using fallback responses.")
+            logger.warning("groq package not installed — using fallback responses.")
         except Exception as exc:
-            logger.error("Failed to initialise Gemini: %s", exc)
+            logger.error("Failed to initialise Groq: %s", exc)
 
     async def generate_medical_guidance(
         self,
@@ -94,37 +91,46 @@ class LLMEngine:
         rag_context: dict | None = None,
     ) -> str:
         """
-        Generate medical guidance using Gemini 2.5 Flash.
+        Generate medical guidance using Groq + Llama 3.3 70B.
 
         Falls back to a canned response if:
         - API key is missing
         - Rate limit is hit after retries
         - Any other API error occurs
         """
-        if not self._initialized or self._model is None:
+        if not self._initialized or self._client is None:
             return _FALLBACK.get(language, _FALLBACK["en"])
 
         prompt = self._build_prompt(patient_text, language, symptoms, severity, rag_context)
 
         for attempt in range(self._MAX_RETRIES):
             try:
+                # Run synchronous Groq call in thread pool
                 response = await asyncio.to_thread(
-                    self._model.generate_content,
-                    prompt,
+                    self._client.chat.completions.create,
+                    model=self._MODEL,
+                    messages=[
+                        {"role": "system", "content": SYSTEM_PROMPT},
+                        {"role": "user", "content": prompt},
+                    ],
+                    temperature=0.7,
+                    max_tokens=1024,
+                    top_p=0.9,
                 )
-                return response.text or _FALLBACK.get(language, _FALLBACK["en"])
+                text = response.choices[0].message.content
+                return text or _FALLBACK.get(language, _FALLBACK["en"])
 
             except Exception as exc:
                 error_str = str(exc).lower()
-                is_rate_limit = "quota" in error_str or "429" in error_str or "rate" in error_str
+                is_rate_limit = "rate" in error_str or "429" in error_str or "quota" in error_str
 
                 if is_rate_limit and attempt < self._MAX_RETRIES - 1:
                     delay = self._BASE_DELAY * (2 ** attempt)
-                    logger.warning("Gemini rate limit hit, retrying in %.1fs (attempt %d)…", delay, attempt + 1)
+                    logger.warning("Groq rate limit hit, retrying in %.1fs (attempt %d)…", delay, attempt + 1)
                     await asyncio.sleep(delay)
                     continue
 
-                logger.error("Gemini API error on attempt %d: %s", attempt + 1, exc)
+                logger.error("Groq API error on attempt %d: %s", attempt + 1, exc)
                 break
 
         return _FALLBACK.get(language, _FALLBACK["en"])
@@ -139,7 +145,7 @@ class LLMEngine:
         severity: str,
         rag_context: dict | None,
     ) -> str:
-        """Compose the full user-turn prompt sent to Gemini."""
+        """Compose the full user-turn prompt sent to Groq."""
         lang_names = {"en": "English", "hi": "Hindi", "te": "Telugu"}
         lang_name = lang_names.get(language, "English")
 
@@ -160,6 +166,8 @@ class LLMEngine:
                 parts.append(f"When to see doctor: {rag_context['when_to_see_doctor']}")
             if rag_context.get("emergency_signs"):
                 parts.append(f"Emergency signs to watch for: {', '.join(rag_context['emergency_signs'])}")
+            if rag_context.get("conversation_history"):
+                parts.append(f"\nPrevious conversation:\n{rag_context['conversation_history']}")
 
         parts.append(f"\nPatient says: {patient_text}")
         parts.append(

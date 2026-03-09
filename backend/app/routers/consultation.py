@@ -4,7 +4,7 @@ POST /api/consultation — full AI-assisted medical consultation pipeline.
 """
 
 import logging
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
 
 from app.models.consultation import ConsultationRequest, ConsultationResponse, SymptomInfo
 from app.services.symptom_extractor import SymptomExtractor
@@ -12,6 +12,8 @@ from app.services.severity_assessor import SeverityAssessor
 from app.services.medical_rag import MedicalRAG
 from app.services.llm_engine import LLMEngine
 from app.services.safety_layer import SafetyLayer
+from app.services.analytics_service import AnalyticsService
+from app.middleware.rate_limiter import limiter
 
 logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api/consultation", tags=["consultation"])
@@ -22,6 +24,7 @@ _severity_assessor = SeverityAssessor()
 _rag = MedicalRAG()
 _llm = LLMEngine()
 _safety = SafetyLayer()
+_analytics = AnalyticsService()
 
 # Disclaimer text per language
 _DISCLAIMERS: dict[str, str] = {
@@ -45,7 +48,8 @@ _DISCLAIMERS: dict[str, str] = {
     response_model=ConsultationResponse,
     summary="AI medical consultation",
 )
-async def consult(request: ConsultationRequest) -> ConsultationResponse:
+@limiter.limit("10/minute")
+async def consult(request: Request, body: ConsultationRequest) -> ConsultationResponse:
     """
     Full consultation pipeline:
     1. Extract symptoms from the patient's text.
@@ -54,17 +58,17 @@ async def consult(request: ConsultationRequest) -> ConsultationResponse:
     4. Generate guidance via Gemini LLM.
     5. Apply safety guardrails before returning the response.
     """
-    if not request.text.strip():
+    if not body.text.strip():
         raise HTTPException(status_code=400, detail="Consultation text cannot be empty.")
 
-    lang = request.language if request.language in ("en", "hi", "te") else "en"
+    lang = body.language if body.language in ("en", "hi", "te") else "en"
 
     try:
         # Step 1 – symptom extraction
-        symptoms: list[SymptomInfo] = _symptom_extractor.extract(request.text, lang)
+        symptoms: list[SymptomInfo] = _symptom_extractor.extract(body.text, lang)
 
         # Step 2 – severity / emergency assessment
-        severity, emergency_type = _severity_assessor.classify(request.text, lang)
+        severity, emergency_type = _severity_assessor.classify(body.text, lang)
         is_emergency = severity == "emergency"
 
         # Step 3 – RAG context retrieval
@@ -73,7 +77,7 @@ async def consult(request: ConsultationRequest) -> ConsultationResponse:
 
         # Step 4 – LLM guidance generation
         raw_guidance = await _llm.generate_medical_guidance(
-            patient_text=request.text,
+            patient_text=body.text,
             language=lang,
             symptoms=symptom_names,
             severity=severity,
@@ -93,6 +97,17 @@ async def consult(request: ConsultationRequest) -> ConsultationResponse:
         when_to_seek_help = rag_context.get("when_to_see_doctor")
 
         disclaimer = _DISCLAIMERS.get(lang, _DISCLAIMERS["en"])
+
+        # Log analytics
+        try:
+            _analytics.log_consultation(
+                symptoms=symptom_names,
+                severity=severity,
+                language=lang,
+                is_emergency=is_emergency,
+            )
+        except Exception:
+            logger.warning("Failed to log analytics for consultation.")
 
         return ConsultationResponse(
             guidance=safe_guidance,

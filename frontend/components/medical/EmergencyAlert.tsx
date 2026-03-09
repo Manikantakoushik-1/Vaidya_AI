@@ -9,7 +9,7 @@ interface EmergencyAlertProps {
 }
 
 export default function EmergencyAlert({ onClose, _language = 'en' }: EmergencyAlertProps) {
-  void language
+  void _language
   return (
     <motion.div
       initial={{ opacity: 0 }}

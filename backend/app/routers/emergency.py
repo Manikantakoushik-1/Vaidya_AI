@@ -3,13 +3,16 @@ VaidyaAI – Emergency detection router.
 POST /api/emergency/check — classifies whether a patient's description is a medical emergency.
 """
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
 from app.models.emergency import EmergencyCheckRequest, EmergencyCheckResponse
 from app.services.severity_assessor import SeverityAssessor
+from app.services.analytics_service import AnalyticsService
+from app.middleware.rate_limiter import limiter
 
 router = APIRouter(prefix="/api/emergency", tags=["emergency"])
 
 _assessor = SeverityAssessor()
+_analytics = AnalyticsService()
 
 
 @router.post(
@@ -17,17 +20,18 @@ _assessor = SeverityAssessor()
     response_model=EmergencyCheckResponse,
     summary="Check for medical emergency",
 )
-async def check_emergency(request: EmergencyCheckRequest) -> EmergencyCheckResponse:
+@limiter.limit("20/minute")
+async def check_emergency(request: Request, body: EmergencyCheckRequest) -> EmergencyCheckResponse:
     """
     Analyse the patient's description and return whether it constitutes an emergency.
 
     Responds with the appropriate helpline number (108 in India) and an
     actionable message in the patient's language.
     """
-    if not request.text.strip():
+    if not body.text.strip():
         raise HTTPException(status_code=400, detail="Text cannot be empty.")
 
-    severity, emergency_type = _assessor.classify(request.text, request.language)
+    severity, emergency_type = _assessor.classify(body.text, body.language)
     is_emergency = severity == "emergency"
 
     if is_emergency:
@@ -45,7 +49,7 @@ async def check_emergency(request: EmergencyCheckRequest) -> EmergencyCheckRespo
                 "దయచేసి వెంటనే 108కు కాల్ చేయండి లేదా సమీప ఆసుపత్రికి వెళ్ళండి."
             ),
         }
-        message = messages.get(request.language, messages["en"])
+        message = messages.get(body.language, messages["en"])
     else:
         messages = {
             "en": "No immediate emergency detected. Please monitor symptoms and consult a doctor if they worsen.",
@@ -53,6 +57,15 @@ async def check_emergency(request: EmergencyCheckRequest) -> EmergencyCheckRespo
             "te": "తక్షణ అత్యవసరం గుర్తించబడలేదు. లక్షణాలను గమనించండి, అవి తీవ్రమైతే వైద్యుడిని సంప్రదించండి.",
         }
         message = messages.get(request.language, messages["en"])
+
+    # Log analytics
+    try:
+        _analytics.log_emergency(
+            emergency_type=emergency_type if is_emergency else None,
+            language=body.language,
+        )
+    except Exception:
+        pass
 
     return EmergencyCheckResponse(
         is_emergency=is_emergency,

@@ -62,3 +62,9 @@ export async function checkEmergency(text: string, language: string): Promise<{ 
   if (!response.ok) throw new Error('Emergency check failed')
   return response.json()
 }
+
+export async function getAnalyticsSummary(): Promise<Record<string, unknown>> {
+  const response = await fetch(`${BACKEND_URL}/api/analytics/summary`)
+  if (!response.ok) throw new Error('Analytics fetch failed')
+  return response.json()
+}

@@ -7,9 +7,13 @@ import logging
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from slowapi.errors import RateLimitExceeded
 
 from app.config import get_settings
-from app.routers import health, consultation, hospitals, emergency
+from app.routers import health, consultation, hospitals, emergency, analytics
+from app.routers import report, image_analysis, chat, tts, push, stt
+from app.middleware.rate_limiter import limiter, rate_limit_exceeded_handler
+from app.middleware.security import SecurityHeadersMiddleware, InputSanitizationMiddleware
 
 logging.basicConfig(
     level=logging.INFO,
@@ -41,11 +45,24 @@ app = FastAPI(
 )
 
 # ---------------------------------------------------------------------------
+# Rate Limiting (slowapi)
+# ---------------------------------------------------------------------------
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, rate_limit_exceeded_handler)
+
+# ---------------------------------------------------------------------------
+# Security middleware
+# ---------------------------------------------------------------------------
+app.add_middleware(SecurityHeadersMiddleware)
+app.add_middleware(InputSanitizationMiddleware)
+
+# ---------------------------------------------------------------------------
 # CORS middleware
 # In development allow all origins; tighten in production via ALLOWED_ORIGINS env var.
 # ---------------------------------------------------------------------------
 settings = get_settings()
-origins = ["*"] if settings.is_development else [settings.BACKEND_URL]
+allowed = settings.ALLOWED_ORIGINS
+origins = allowed if allowed else (["*"] if settings.is_development else [settings.BACKEND_URL])
 
 app.add_middleware(
     CORSMiddleware,
@@ -62,6 +79,13 @@ app.include_router(health.router)
 app.include_router(consultation.router)
 app.include_router(hospitals.router)
 app.include_router(emergency.router)
+app.include_router(analytics.router)
+app.include_router(report.router)
+app.include_router(image_analysis.router)
+app.include_router(chat.router)
+app.include_router(tts.router)
+app.include_router(push.router)
+app.include_router(stt.router)
 
 
 # ---------------------------------------------------------------------------

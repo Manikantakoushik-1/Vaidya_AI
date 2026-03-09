@@ -3,6 +3,8 @@ import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import MobileNav from '@/components/layout/MobileNav'
 import MedicalDisclaimer from '@/components/medical/MedicalDisclaimer'
+import OfflineBanner from '@/components/ui/OfflineBanner'
+import InstallPrompt from '@/components/ui/InstallPrompt'
 
 export const metadata: Metadata = {
   title: 'VaidyaAI - AI Doctor for Rural India',
@@ -29,13 +31,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="min-h-screen flex flex-col font-sans">
+        <OfflineBanner />
         <Navbar />
         <main className="flex-1 pb-20 md:pb-0 md:pt-16">
           {children}
         </main>
         <MedicalDisclaimer />
         <MobileNav />
+        <InstallPrompt />
       </body>
     </html>
   )
 }
+

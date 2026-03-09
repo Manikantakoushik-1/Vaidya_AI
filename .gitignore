@@ -47,3 +47,9 @@ npm-debug.log*
 
 # Docker
 .dockerignore
+
+# Runtime data
+backend/app/data/analytics_store.json
+
+# Vercel
+.vercel

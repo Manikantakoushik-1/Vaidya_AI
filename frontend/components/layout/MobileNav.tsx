@@ -1,14 +1,14 @@
 'use client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Home, Mic, MapPin, Clock, Info } from 'lucide-react'
+import { Home, Mic, MapPin, Clock, MessageCircle, BarChart3 } from 'lucide-react'
 
 const tabs = [
   { href: '/', label: 'Home', icon: Home },
   { href: '/consultation', label: 'Consult', icon: Mic },
+  { href: '/chat', label: 'Chat', icon: MessageCircle },
   { href: '/hospitals', label: 'Hospitals', icon: MapPin },
   { href: '/history', label: 'History', icon: Clock },
-  { href: '/about', label: 'About', icon: Info },
 ]
 
 export default function MobileNav() {
