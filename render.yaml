@@ -1,0 +1,21 @@
+# Render deployment config for VaidyaAI Backend
+# Deploy this as a Web Service on https://render.com
+
+services:
+  - type: web
+    name: vaidyaai-backend
+    runtime: python
+    region: oregon
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: SARVAM_API_KEY
+        sync: false
+      - key: ENVIRONMENT
+        value: production
